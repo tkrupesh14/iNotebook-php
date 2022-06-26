@@ -5,7 +5,7 @@ $sql = "DELETE from notes where id = $id";
 $run = mysqli_query($con, $sql);
 
 if($run){
-    echo "<script> alert('Note deleted Successfully');
+    echo "<script> 
     window.location.href = 'notes.php';
     </script>";
     

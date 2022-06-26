@@ -20,6 +20,7 @@ $run = mysqli_query($con, $sql);
         <th>#</th>
         <th>Title</th>
         <th>Description</th>
+        <th>Image</th>
         <th>Time</th>
         <th colspan="2">Actions</th>
     </thead>
@@ -33,9 +34,10 @@ $run = mysqli_query($con, $sql);
             <td><?= $no?></td>
             <td><?= $row["title"]?></td>
             <td><?= $row["description"]?></td>
+            <td><img src="<?= $row['image']?>" width="60"></td>
             <td><?= $row["time"]?></td>
-            <td> <a class="badge bg-success" href="update.php?id=<?= $row ['id']?>">Edit</a></td>
-            <td><a class="badge bg-danger" href="delete.php?id=<?= $row ['id']?>">Delete</a> </td>
+            <td> <a class="badge bg-success" href="update.php?id=<?= $row ['id']?>" >Edit</a></td>
+            <td><a class="badge bg-danger" href="delete.php?id=<?= $row ['id']?>" onclick="notiflix();">Delete</a> </td>
         </tr>
         <?php
     }
@@ -44,3 +46,12 @@ $run = mysqli_query($con, $sql);
 <?php
 include './footer.php';
 ?>
+<script>
+    function notiflix(){
+        if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+        Notiflix.Notify.success('Note Deleted');
+    }
+   
+</script>
