@@ -4,6 +4,7 @@ $uname = "root";
 $pass = "";
 $dbname = "inotebook";
 
+
 $con = mysqli_connect($servername, $uname, $pass, $dbname);
 
 // if($con->connect_error){

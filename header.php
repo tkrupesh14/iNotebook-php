@@ -1,3 +1,12 @@
+<?php
+session_start();
+if((isset($_SESSION['valid']))){
+  $login = true;
+}else{
+  $login = false;
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,13 +30,39 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./">Add Note</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./notes.php">View Note</a>
-        </li>
+        <?php
+          if($login){
+            ?>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/iNotebook">Add Note</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./notes.php">View Note</a>
+          </li>
+<?php
+          }else{
+            echo "Pela Login Thav Pachi Menu Dekhase";
+          }
+          ?>
       </ul>
+
     </div>
+        <div class="me-3">
+          <?php
+            if($login){
+              ?>
+<a href="./logout.php" class="btn btn-outline-primary">LogOut</a>
+
+<?php
+            }else{
+              ?>
+              <a href="./signup.php" class="btn btn-outline-primary">Sign Up</a>
+              <a href="./login.php" class="btn btn-primary">Log In</a>
+
+              <?php
+            }
+          ?>
+        </div>
+
   </div>
 </nav>

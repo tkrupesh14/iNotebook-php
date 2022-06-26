@@ -1,6 +1,7 @@
 <?php
 include "./header.php";
 include "./db.php";
+
 $id= $_GET['id'];
 
 $sql = "SELECT * FROM notes WHERE id = $id";

@@ -1,6 +1,9 @@
 <?php
 include "./header.php";
 include "./db.php";
+if($_SESSION['valid'] != true || !$_SESSION['valid']){
+    header("location: ./login.php");
+}
 
 ?>
 
